@@ -47,7 +47,7 @@ The projection middleware will create a projection for the whole subtree of its 
 are members of a type will be projected. Fields that define a customer resolver cannot be projected
 to the database. If the middleware encounters a field that specifies `UseProjections()` this field will be skipped. 
 
-> ⚠️ **Note:** If you use more than middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
 
 
 **Code First**
@@ -71,7 +71,7 @@ public class Query
 
 **Pure Code First**
 
-The field descriptor attribute `[UseProjections]` does apply the extension method `UseProjections()` on the field descriptor.
+The field descriptor attribute `[UseProjections]` applies the extension method `UseProjections()` on the field descriptor.
 
 ```csharp
 public class Query
@@ -115,7 +115,7 @@ type User {
 ```
 
 
-# Sorting Filtering and Paging
+# Sorting, Filtering and Paging
 Projections can be used together with sorting, filtering and paging. The order of the middlewares must be correct. 
 Make sure to have the following order: UsePaging > UseProjections > UseFiltering > UseSorting
 
@@ -217,7 +217,7 @@ public class UserType : ObjectType<User>
 
 **Pure Code First**
 
-The field descriptor attribute `[IsProjected]` does apply the extension method `IsProjected()` on the field descriptor.
+The field descriptor attribute `[IsProjected]` applies the extension method `IsProjected()` on the field descriptor.
 
 ```csharp
 public class User
